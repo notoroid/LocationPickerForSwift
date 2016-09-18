@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mn0-lB-w1q">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="8JY-pc-lhS">
+            <objects>
+                <navigationController storyboardIdentifier="dummyID" id="fz6-3Z-n5U" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7h-9B-a5e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mn0-lB-w1q" kind="relationship" relationship="rootViewController" id="lUF-1p-Xhp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TrN-Ho-zWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7815" y="-10699"/>
+        </scene>
+        <!--位置を追加-->
+        <scene sceneID="pvE-DT-fZl">
+            <objects>
+                <viewController id="mn0-lB-w1q" customClass="LocationPickerViewController" customModule="LocationPickerForSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mSC-YP-P5A"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Ax-NY-vZO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uGg-Ny-6wZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bid-hx-0QN">
+                                <connections>
+                                    <outlet property="delegate" destination="mn0-lB-w1q" id="Kq6-rQ-roI"/>
+                                </connections>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVz-0q-OFF">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地図上でロングプレス(長押し)でピンをドロップ。追加ボタンで場所を選択します。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhu-aL-2Y9">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="GSb-O0-YPk"/>
+                                            <constraint firstAttribute="height" constant="70" id="P4P-Ak-5PB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="GSb-O0-YPk"/>
+                                                <exclude reference="P4P-Ak-5PB"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Lhu-aL-2Y9" secondAttribute="trailing" id="Fbv-nW-b4Z"/>
+                                    <constraint firstItem="Lhu-aL-2Y9" firstAttribute="top" secondItem="uVz-0q-OFF" secondAttribute="top" id="VpO-kb-XQb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lhu-aL-2Y9" secondAttribute="bottom" id="jxP-34-bh8"/>
+                                    <constraint firstItem="Lhu-aL-2Y9" firstAttribute="leading" secondItem="uVz-0q-OFF" secondAttribute="leading" id="mQh-Mp-5L8"/>
+                                    <constraint firstAttribute="height" constant="70" id="sOm-Az-QZQ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccj-na-ha3">
+                                <state key="normal" title="選択"/>
+                                <connections>
+                                    <action selector="onSelectLocation:" destination="mn0-lB-w1q" eventType="touchUpInside" id="wMV-vu-DER"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ccj-na-ha3" firstAttribute="centerY" secondItem="uVz-0q-OFF" secondAttribute="centerY" id="15W-IQ-wQS"/>
+                            <constraint firstItem="uVz-0q-OFF" firstAttribute="leading" secondItem="uGg-Ny-6wZ" secondAttribute="leadingMargin" id="37S-Lt-agj"/>
+                            <constraint firstItem="Ccj-na-ha3" firstAttribute="leading" secondItem="uVz-0q-OFF" secondAttribute="trailing" constant="17" id="7GU-Mi-aaF"/>
+                            <constraint firstItem="bid-hx-0QN" firstAttribute="leading" secondItem="uGg-Ny-6wZ" secondAttribute="leading" id="7iy-aR-CeH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uVz-0q-OFF" secondAttribute="trailing" constant="66" id="DhR-GX-rPv"/>
+                            <constraint firstItem="1Ax-NY-vZO" firstAttribute="top" secondItem="uVz-0q-OFF" secondAttribute="bottom" constant="8" id="Fqc-os-6u8"/>
+                            <constraint firstItem="bid-hx-0QN" firstAttribute="top" secondItem="mSC-YP-P5A" secondAttribute="bottom" id="Hig-JJ-dAO"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="bid-hx-0QN" secondAttribute="bottom" constant="86" id="WnZ-En-t3S"/>
+                            <constraint firstAttribute="trailing" secondItem="bid-hx-0QN" secondAttribute="trailing" id="vNW-Xx-tq8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="位置を追加" id="Lgi-qB-jCh"/>
+                    <connections>
+                        <outlet property="buttonSelect" destination="Ccj-na-ha3" id="RKB-hc-YFf"/>
+                        <outlet property="mapView" destination="bid-hx-0QN" id="jPl-6A-Ilu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIP-Go-EcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7816" y="-9929"/>
+        </scene>
+    </scenes>
+</document>
