@@ -30,10 +30,11 @@ class LocationPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 位置情報を有効化
-        self.locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
         
+        self.locationManager.delegate = self
+            // delegate を設定
+        self.locationManager.requestWhenInUseAuthorization()
+            // 位置情報を有効化
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(LocationPickerViewController.onCancel(target:)))
         buttonSelect?.isEnabled = false
